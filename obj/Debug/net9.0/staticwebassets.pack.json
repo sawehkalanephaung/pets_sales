@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/saw/sales_pets/wwwroot/images/dog&cat.png",
+      "PackagePath": "staticwebassets/images/dog&cat.png"
+    },
+    {
       "Id": "/Users/saw/sales_pets/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

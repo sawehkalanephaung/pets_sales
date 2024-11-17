@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "W3cvCFhcVwE39h23tP4i2l6hfJpv6rmiAMNNi80Czvc=",
+  "Hash": "z8IGP8qQU1mumC44O/fW4bE1jzypzU5DsGBbsRlYchM=",
   "Source": "sales_pets",
   "BasePath": "_content/sales_pets",
   "Mode": "Default",
@@ -1443,6 +1443,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/saw/sales_pets/wwwroot/images/dog&cat.png",
+      "SourceId": "sales_pets",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/saw/sales_pets/wwwroot/",
+      "BasePath": "_content/sales_pets",
+      "RelativePath": "images/dog&cat#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ym26wts884",
+      "Integrity": "2sa8XFWgBP8f2K6ha7d5ASA3d04OS43pxOlAXUC0ZEM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/dog&cat.png"
     },
     {
       "Identity": "/Users/saw/sales_pets/wwwroot/js/site.js",
@@ -3320,6 +3341,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4="
+        }
+      ]
+    },
+    {
+      "Route": "images/dog&cat.png",
+      "AssetFile": "/Users/saw/sales_pets/wwwroot/images/dog&cat.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "582924"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2sa8XFWgBP8f2K6ha7d5ASA3d04OS43pxOlAXUC0ZEM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 17 Nov 2024 06:15:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2sa8XFWgBP8f2K6ha7d5ASA3d04OS43pxOlAXUC0ZEM="
+        }
+      ]
+    },
+    {
+      "Route": "images/dog&cat.ym26wts884.png",
+      "AssetFile": "/Users/saw/sales_pets/wwwroot/images/dog&cat.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "582924"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2sa8XFWgBP8f2K6ha7d5ASA3d04OS43pxOlAXUC0ZEM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 17 Nov 2024 06:15:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ym26wts884"
+        },
+        {
+          "Name": "label",
+          "Value": "images/dog&cat.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2sa8XFWgBP8f2K6ha7d5ASA3d04OS43pxOlAXUC0ZEM="
         }
       ]
     },
