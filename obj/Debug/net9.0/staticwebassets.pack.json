@@ -13,8 +13,32 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/saw/sales_pets/wwwroot/images/about_us.png",
+      "PackagePath": "staticwebassets/images/about_us.png"
+    },
+    {
+      "Id": "/Users/saw/sales_pets/wwwroot/images/contact-dark.svg",
+      "PackagePath": "staticwebassets/images/contact-dark.svg"
+    },
+    {
+      "Id": "/Users/saw/sales_pets/wwwroot/images/contact-light.svg",
+      "PackagePath": "staticwebassets/images/contact-light.svg"
+    },
+    {
+      "Id": "/Users/saw/sales_pets/wwwroot/images/contact.png",
+      "PackagePath": "staticwebassets/images/contact.png"
+    },
+    {
       "Id": "/Users/saw/sales_pets/wwwroot/images/dog&cat.png",
       "PackagePath": "staticwebassets/images/dog&cat.png"
+    },
+    {
+      "Id": "/Users/saw/sales_pets/wwwroot/images/wave_animation_dark.svg",
+      "PackagePath": "staticwebassets/images/wave_animation_dark.svg"
+    },
+    {
+      "Id": "/Users/saw/sales_pets/wwwroot/images/wave_animation_light.svg",
+      "PackagePath": "staticwebassets/images/wave_animation_light.svg"
     },
     {
       "Id": "/Users/saw/sales_pets/wwwroot/js/site.js",
