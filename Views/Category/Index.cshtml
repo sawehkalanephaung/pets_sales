@@ -29,8 +29,10 @@
 </div>
 
 
+
 @section Scripts {
     <script>
+        //  Fetching pet data from the Swagger Pet Store API for available, sold, and pending statuses.
         document.addEventListener('DOMContentLoaded', function () {
             let allPets = [];
 
@@ -51,7 +53,7 @@
                     })
                     .catch(error => console.error('Error fetching pets data:', error));
             }
-
+            // Displaying the pet cards in the `petsContainer` element on the page.
             function displayPets(pets) {
                 const petsContainer = document.getElementById('petsContainer');
                 petsContainer.innerHTML = ''; // Clear existing pets
@@ -100,11 +102,12 @@
                 }
             }
 
+/// 4. Implementing a status filter that allows the user to filter the displayed pets by their status (available, pending, or sold).
             document.querySelectorAll('.dropdown-item[data-status]').forEach(item => {
             item.addEventListener('click', function (event) {
                 const status = event.target.getAttribute('data-status');
                 const statusDropdown = document.getElementById('statusDropdown');
-                statusDropdown.textContent = event.target.textContent; // Update button text
+                statusDropdown.textContent = event.target.textContent; // Update button text based on current selection
                 const filteredPets = allPets.filter(pet => pet.status.toLowerCase() === status.toLowerCase());
                 displayPets(filteredPets);
             });
