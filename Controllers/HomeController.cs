@@ -19,6 +19,13 @@ namespace sales_pets.Controllers
             return View();
         }
 
+        public IActionResult Landing()
+        {
+            ViewData["Title"] = "Welcome to Sales Pets";
+            return View();
+        }
+
+
         public IActionResult WeeklySales()
         {
             ViewData["Title"] = "Weekly Sales";
