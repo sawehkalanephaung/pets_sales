@@ -96,3 +96,5 @@
 /Users/saw/sales_pets/obj/Debug/net9.0/sales_pets.pdb
 /Users/saw/sales_pets/obj/Debug/net9.0/sales_pets.genruntimeconfig.cache
 /Users/saw/sales_pets/obj/Debug/net9.0/ref/sales_pets.dll
+/Users/saw/sales_pets/obj/Debug/net9.0/compressed/vis4pkgu1i-dfsm989yx1.gz
+/Users/saw/sales_pets/obj/Debug/net9.0/compressed/ps3gywfidx-u6snmd11jv.gz
