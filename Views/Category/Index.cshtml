@@ -1,6 +1,117 @@
 ﻿@{
-    ViewData["Title"] = $"{ViewData["Title"]}";
+    ViewData["Title"] = "Available Pets";
 }
 
-<h1>@ViewData["Title"]</h1>
-<p>Explore our selection of @ViewData["Title"]!</p>
+<h1>Available Pets</h1>
+<p>Explore our selection of available pets!</p>
+
+<div class="d-flex justify-content-end mb-3">
+  
+    <!-- Status Filter -->
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Status
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="statusDropdown">
+            <li><a class="dropdown-item" href="#" data-status="available">Available</a></li>
+            <li><a class="dropdown-item" href="#" data-status="pending">Pending</a></li>
+            <li><a class="dropdown-item" href="#" data-status="sold">Sold</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="petsContainer">
+            <!-- Pet cards will be populated here -->
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let allPets = [];
+
+            function fetchPets() {
+                const statuses = ['available', 'sold', 'pending'];
+                const fetchPromises = statuses.map(status => 
+                    fetch(`https://petstore.swagger.io/v2/pet/findByStatus?status=${status}`)
+                        .then(response => response.json())
+                );
+
+                Promise.all(fetchPromises)
+                    .then(results => {
+                        allPets = results.flat().map(pet => ({
+                            ...pet,
+                            price: (Math.random() * 100 + 50).toFixed(2) // Generate random price between 50 and 150
+                        }));
+                        displayPets(allPets);
+                    })
+                    .catch(error => console.error('Error fetching pets data:', error));
+            }
+
+            function displayPets(pets) {
+                const petsContainer = document.getElementById('petsContainer');
+                petsContainer.innerHTML = ''; // Clear existing pets
+                pets.forEach(pet => {
+                    const card = document.createElement('div');
+                    card.className = 'col';
+                    card.innerHTML = `
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                            </svg>
+                            <div class="card-body">
+                                <h5 class="card-title">Name: ${pet.name}</h5>
+                                <p class="card-text">
+                                    Status:
+                                    <span class="badge bg-${statusToColor(pet.status)}">${pet.status}</span>
+                                </p>
+                                <p class="card-text">Category: ${pet.category ? pet.category.name : 'Unknown'}</p>
+                                <p class="card-text">Price: $${pet.price}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Buy Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    petsContainer.appendChild(card);
+                });
+            }
+
+            function statusToColor(status) {
+                switch (status) {
+                    case 'available':
+                        return 'success';
+                    case 'pending':
+                        return 'warning';
+                    case 'sold':
+                        return 'danger';
+                    default:
+                        return 'secondary';
+                }
+            }
+
+            document.querySelectorAll('.dropdown-item[data-status]').forEach(item => {
+            item.addEventListener('click', function (event) {
+                const status = event.target.getAttribute('data-status');
+                const statusDropdown = document.getElementById('statusDropdown');
+                statusDropdown.textContent = event.target.textContent; // Update button text
+                const filteredPets = allPets.filter(pet => pet.status.toLowerCase() === status.toLowerCase());
+                displayPets(filteredPets);
+            });
+        });
+    
+            fetchPets();
+        });
+    </script>
+}

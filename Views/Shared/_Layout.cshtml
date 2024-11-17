@@ -25,48 +25,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Pets</a>
+                        </li>
                         <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="WeeklySales">Weekly Sales</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DailySales">Daily Sales</a>
                     </li>
-
-                     
-                      
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" href="#" id="categoriesDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Categories
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                                <li>
-                                    <h6 class="dropdown-header">Common Pets</h6>
-                                </li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index"
-                                        asp-route-id="dog">Dog</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index"
-                                        asp-route-id="cat">Cat</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <h6 class="dropdown-header">Exotic Pets</h6>
-                                </li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index"
-                                        asp-route-id="koala">Koala</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index"
-                                        asp-route-id="rabbit">Rabbit</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index"
-                                        asp-route-id="panda">Panda</a></li>
-                            </ul>
-                        </li>
+                       
                         <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-</li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
                       
                     </ul>
                 </div>
