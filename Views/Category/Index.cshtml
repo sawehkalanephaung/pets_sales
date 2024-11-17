@@ -2,6 +2,7 @@
     ViewData["Title"] = "Available Pets";
 }
 
+<div class="container-fluid background">
 <h1>List of Pets</h1>
 
 <div class="d-flex justify-content-end mb-3">
@@ -26,6 +27,7 @@
             <!-- Pet cards will be populated here -->
         </div>
     </div>
+</div>
 </div>
 
 
@@ -116,4 +118,14 @@
             fetchPets();
         });
     </script>
+}
+
+
+@section Styles {
+    <style>
+        /* Page-specific CSS */
+        .background{
+            margin-top: 80px;
+        }
+    </style>
 }

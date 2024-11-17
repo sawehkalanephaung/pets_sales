@@ -2,9 +2,8 @@
     ViewData["Title"] = "Daily Sales";
 }
 
+<div class="container-fluid background">
 <h1>Daily Sales Summary</h1>
-<p>Discover today's special offers on pets!</p>
-
 <div class="container mt-4">
     <h2>Sales Data Table</h2>
     <table class="table table-striped">
@@ -19,6 +18,7 @@
             <!-- Data will be populated here -->
         </tbody>
     </table>
+</div>
 </div>
 
 @section Scripts {
@@ -43,3 +43,14 @@
         });
     </script>
 }
+
+@section Styles {
+    <style>
+        /* Page-specific CSS */
+        .background{
+            margin-top: 80px;
+        }
+
+    </style>
+
+    }
