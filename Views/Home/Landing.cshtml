@@ -1,14 +1,16 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Welcome to Sales Pets";
 }
 
 <div class="container-fluid  d-flex align-items-center justify-content-center background rounded bg-yellow">
     <div class="row w-100">
         <div class="col-md-6 d-flex flex-column justify-content-center align-items-start p-5">
-            <h1 class="display-4">Welcome to Sales Pets</h1>
-            <p class="lead">Your one-stop shop for finding your perfect pet companion. Explore our wide range of pets and find the one that suits your lifestyle.</p>
-            <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-lg mt-3">Explore Now</a>
+            <h1 class="display-4">Find the perfect pets</h1>
+            <p class="lead">Your one-stop shop for finding your perfect pet companion. </p>
+            <form class="d-flex mt-3" action="@Url.Action("Index", "Home")" method="get">
+                <input class="form-control me-2" type="search" placeholder="Search pets..." aria-label="Search">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
         </div>
         <div class="col-md-6 d-flex justify-content-center align-items-center ">
             <img src="~/images/dog&cat.png" alt="Cat or Dog" class="img-fluid">
@@ -20,16 +22,16 @@
 @section Styles {
     <style>
         /* Page-specific CSS */
-        .background{
+        .background {
             margin-top: 200px;
         }
-        .img-fluid{
+
+        .img-fluid {
             width: 773px;
-            hight:auto;
+            hight: auto;
             flex-shrink: 0;
             padding: 20px;
         }
-
     </style>
 }
 @section Scripts {

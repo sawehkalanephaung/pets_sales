@@ -1,19 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Weekly Sales";
 }
-
-
-
-
-<div class="container-fluid background">
+<div class="container-fluid ">
     <h1 class="text-center">Weekly Sales</h1>
-    <p class="text-center">Check out the best deals on pets this week!</p>
-
     <div class="container mt-4">
         <canvas id="salesChart" width="400" height="200"></canvas>
     </div>
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5">
         <h2>Sales Data Table</h2>
         <table class="table table-striped">
             <thead>
@@ -28,7 +22,6 @@
             </tbody>
         </table>
     </div>
-
 
 
 
@@ -94,13 +87,11 @@
             });
         </script>
     }
+
 @section Styles {
        <style>
         /* Page-specific CSS */
-        .background{
-            margin-top: 80px;
-        }
-
+  
     </style>
 
     }

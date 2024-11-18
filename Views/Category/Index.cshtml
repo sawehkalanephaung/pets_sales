@@ -1,24 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Available Pets";
-}
+﻿<div class="container-fluid background">
+    <h1>List of Pets</h1>
 
-<div class="container-fluid background">
-<h1>List of Pets</h1>
+    <div class="d-flex justify-content-end mb-3">
+        <!-- Create Button -->
+      <button class="btn btn-primary me-2" type="button" id="createButton" onclick=window.location.href='@Url.Action("Create", "Category")'">
+        Create
+    </button>
 
-<div class="d-flex justify-content-end mb-3">
-  
-    <!-- Status Filter -->
-    <div class="dropdown">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            Status
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="statusDropdown">
-            <li><a class="dropdown-item" href="#" data-status="available">Available</a></li>
-            <li><a class="dropdown-item" href="#" data-status="pending">Pending</a></li>
-            <li><a class="dropdown-item" href="#" data-status="sold">Sold</a></li>
-        </ul>
+
+        <!-- Status Filter -->
+        <div class=" dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="statusDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Status
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="statusDropdown">
+                <li><a class="dropdown-item" href="#" data-status="available">Available</a></li>
+                <li><a class="dropdown-item" href="#" data-status="pending">Pending</a></li>
+                <li><a class="dropdown-item" href="#" data-status="sold">Sold</a></li>
+            </ul>
     </div>
-
 </div>
 
 <div class="album py-5 bg-body-tertiary">
@@ -26,21 +27,53 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="petsContainer">
             <!-- Pet cards will be populated here -->
         </div>
+        <!-- Add load more -->
+        <div class="text-end mt-4">
+            <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
+        </div>
     </div>
 </div>
 </div>
 
-
+<!-- Pet Card Template -->
+<template id="petCardTemplate">
+    <div class="col">
+        <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+                <h5 class="card-title">Name: <span class="pet-name"></span></h5>
+                <p class="card-text">
+                    Status:
+                    <span class="badge pet-status"></span>
+                </p>
+                <p class="card-text">Category: <span class="pet-category"></span></p>
+                <p class="card-text">Price: <span class="pet-price"></span></p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
 
 @section Scripts {
     <script>
-        //  Fetching pet data from the Swagger Pet Store API for available, sold, and pending statuses.
         document.addEventListener('DOMContentLoaded', function () {
             let allPets = [];
+            let displayedPets = 0;
+            const petsPerPage = 9; // Number of pets to display per page
 
             function fetchPets() {
                 const statuses = ['available', 'sold', 'pending'];
-                const fetchPromises = statuses.map(status => 
+                const fetchPromises = statuses.map(status =>
                     fetch(`https://petstore.swagger.io/v2/pet/findByStatus?status=${status}`)
                         .then(response => response.json())
                 );
@@ -51,45 +84,40 @@
                             ...pet,
                             price: (Math.random() * 100 + 50).toFixed(2) // Generate random price between 50 and 150
                         }));
-                        displayPets(allPets);
+                        displayPets(allPets.slice(0, petsPerPage));
                     })
                     .catch(error => console.error('Error fetching pets data:', error));
             }
-            // Displaying the pet cards in the `petsContainer` element on the page.
+
             function displayPets(pets) {
                 const petsContainer = document.getElementById('petsContainer');
-                petsContainer.innerHTML = ''; // Clear existing pets
+                const template = document.getElementById('petCardTemplate').content;
                 pets.forEach(pet => {
-                    const card = document.createElement('div');
-                    card.className = 'col';
-                    card.innerHTML = `
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <h5 class="card-title">Name: ${pet.name}</h5>
-                                <p class="card-text">
-                                    Status:
-                                    <span class="badge bg-${statusToColor(pet.status)}">${pet.status}</span>
-                                </p>
-                                <p class="card-text">Category: ${pet.category ? pet.category.name : 'Unknown'}</p>
-                                <p class="card-text">Price: $${pet.price}</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Buy Now</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    petsContainer.appendChild(card);
+                    const clone = document.importNode(template, true);
+                    clone.querySelector('.pet-name').textContent = pet.name;
+                    clone.querySelector('.pet-status').textContent = pet.status;
+                    clone.querySelector('.pet-status').classList.add(`bg-${statusToColor(pet.status)}`);
+                    clone.querySelector('.pet-category').textContent = pet.category ? pet.category.name : 'Unknown';
+                    clone.querySelector('.pet-price').textContent = pet.price;
+                    petsContainer.appendChild(clone);
                 });
+
+                // Update displayedPets count
+                displayedPets += pets.length;
+
+                // Show or hide the "Load More" button
+                const loadMoreBtn = document.getElementById('loadMoreBtn');
+                if (displayedPets >= allPets.length || allPets.length <= petsPerPage) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block';
+                }
             }
+
+            document.getElementById('loadMoreBtn').addEventListener('click', () => {
+                const nextPets = allPets.slice(displayedPets, displayedPets + petsPerPage);
+                displayPets(nextPets);
+            });
 
             function statusToColor(status) {
                 switch (status) {
@@ -104,28 +132,18 @@
                 }
             }
 
-/// 4. Implementing a status filter that allows the user to filter the displayed pets by their status (available, pending, or sold).
             document.querySelectorAll('.dropdown-item[data-status]').forEach(item => {
-            item.addEventListener('click', function (event) {
-                const status = event.target.getAttribute('data-status');
-                const statusDropdown = document.getElementById('statusDropdown');
-                statusDropdown.textContent = event.target.textContent; // Update button text based on current selection
-                const filteredPets = allPets.filter(pet => pet.status.toLowerCase() === status.toLowerCase());
-                displayPets(filteredPets);
+                item.addEventListener('click', function (event) {
+                    const status = event.target.getAttribute('data-status');
+                    const statusDropdown = document.getElementById('statusDropdown');
+                    statusDropdown.textContent = event.target.textContent; // Update button text
+                    const filteredPets = allPets.filter(pet => pet.status.toLowerCase() === status.toLowerCase());
+                    displayedPets = 0; // Reset displayed pets count
+                    displayPets(filteredPets.slice(0, petsPerPage));
+                });
             });
-        });
-    
+
             fetchPets();
         });
     </script>
-}
-
-
-@section Styles {
-    <style>
-        /* Page-specific CSS */
-        .background{
-            margin-top: 80px;
-        }
-    </style>
 }

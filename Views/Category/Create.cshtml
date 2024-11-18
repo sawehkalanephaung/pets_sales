@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Add New Pet";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Add New Pet</h2>
+    <form method="post" action="@Url.Action("Create", "Category")">
+        <div class="mb-3">
+            <label for="petName" class="form-label">Pet Name</label>
+            <input type="text" class="form-control" id="petName" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="petCategory" class="form-label">Category</label>
+            <select class="form-select" id="petCategory" name="category" required>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Fish">Fish</option>
+                <!-- Add more categories as needed -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="petStatus" class="form-label">Status</label>
+            <select class="form-select" id="petStatus" name="status" required>
+                <option value="available">Available</option>
+                <option value="pending">Pending</option>
+                <option value="sold">Sold</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="petPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="petPrice" name="price" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Pet</button>
+    </form>
+</div>

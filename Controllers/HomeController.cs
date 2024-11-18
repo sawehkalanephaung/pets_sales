@@ -18,17 +18,19 @@ namespace sales_pets.Controllers
             ViewData["Title"] = "Home";
             return View();
         }
+       public IActionResult Dashboard()
+        {
+            return View();
+        }
 
         public IActionResult Landing()
         {
-            ViewData["Title"] = "Welcome to Sales Pets";
             return View();
         }
 
 
         public IActionResult WeeklySales()
         {
-            ViewData["Title"] = "Weekly Sales";
             return View();
         }
 
@@ -55,6 +57,7 @@ namespace sales_pets.Controllers
             ViewData["Title"] = "Privacy";
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

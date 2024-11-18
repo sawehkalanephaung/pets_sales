@@ -18,9 +18,7 @@
 /Users/saw/sales_pets/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/saw/sales_pets/obj/Debug/net9.0/scopedcss/bundle/sales_pets.styles.css
 /Users/saw/sales_pets/obj/Debug/net9.0/scopedcss/projectbundle/sales_pets.bundle.scp.css
-/Users/saw/sales_pets/obj/Debug/net9.0/compressed/qrkguxx7iz-b9sayid5wm.gz
 /Users/saw/sales_pets/obj/Debug/net9.0/compressed/qypaud5iqx-61n19gt1b8.gz
-/Users/saw/sales_pets/obj/Debug/net9.0/compressed/p3d7d9zl82-xtxxf3hu2r.gz
 /Users/saw/sales_pets/obj/Debug/net9.0/compressed/9bq59g8p26-bqjiyaj88i.gz
 /Users/saw/sales_pets/obj/Debug/net9.0/compressed/vcxno8sx96-c2jlpeoesf.gz
 /Users/saw/sales_pets/obj/Debug/net9.0/compressed/p9z12wckqm-erw9l3u2r3.gz
@@ -100,3 +98,8 @@
 /Users/saw/sales_pets/obj/Debug/net9.0/compressed/ps3gywfidx-u6snmd11jv.gz
 /Users/saw/sales_pets/obj/Debug/net9.0/compressed/te6e5tcng4-g5ddotitll.gz
 /Users/saw/sales_pets/obj/Debug/net9.0/compressed/pg5dipy1fw-uhkeazo2p4.gz
+/Users/saw/sales_pets/obj/Debug/net9.0/compressed/p3d7d9zl82-y0wab0ka0p.gz
+/Users/saw/sales_pets/bin/Debug/net9.0/Newtonsoft.Json.dll
+/Users/saw/sales_pets/obj/Debug/net9.0/sales_pets.csproj.AssemblyReference.cache
+/Users/saw/sales_pets/obj/Debug/net9.0/sales_pets.csproj.Up2Date
+/Users/saw/sales_pets/obj/Debug/net9.0/compressed/qrkguxx7iz-7uldkgzib0.gz
