@@ -12,13 +12,19 @@ namespace sales_pets.Controllers
     public class CategoryController : Controller
     {
 
-         public IActionResult Index()
-    {
-        return View();
-    }
-    
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         // GET: Category/Create
         public IActionResult Create()
+        {
+            return View();
+        }
+
+        // Update
+        public IActionResult Update()
         {
             return View();
         }
@@ -82,6 +88,7 @@ namespace sales_pets.Controllers
             return View(pet);
         }
 
+
         // POST: Category/Update/5
         [HttpPost]
         public async Task<IActionResult> Update(Pet pet, string photoUrls, string tags)
@@ -119,10 +126,30 @@ namespace sales_pets.Controllers
                 }
             }
             return View(pet);
-        }
-    }
-}
+        } // end
 
+        // delete 
+        [HttpDelete("Category/Delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.DeleteAsync($"https://petstore.swagger.io/v2/pet/{id}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return StatusCode((int)response.StatusCode, "Failed to delete the pet.");
+                }
+            }
+        }
+
+
+    }
+}}
 public class Pet
 {
     public int Id { get; set; }
