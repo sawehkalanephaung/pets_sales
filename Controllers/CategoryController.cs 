@@ -11,7 +11,6 @@ namespace sales_pets.Controllers
 {
     public class CategoryController : Controller
     {
-
         public IActionResult Index()
         {
             return View();
@@ -19,12 +18,6 @@ namespace sales_pets.Controllers
 
         // GET: Category/Create
         public IActionResult Create()
-        {
-            return View();
-        }
-
-        // Update
-        public IActionResult Update()
         {
             return View();
         }
@@ -64,9 +57,8 @@ namespace sales_pets.Controllers
                 }
             }
             return View(pet);
-        } // END CREATE
+        }
 
-        // UPDATE:
         // GET: Category/Update/5
         public async Task<IActionResult> Update(int id)
         {
@@ -81,13 +73,11 @@ namespace sales_pets.Controllers
                 }
                 else
                 {
-                    // Handle error response
                     return NotFound();
                 }
             }
             return View(pet);
         }
-
 
         // POST: Category/Update/5
         [HttpPost]
@@ -126,9 +116,9 @@ namespace sales_pets.Controllers
                 }
             }
             return View(pet);
-        } // end
+        }
 
-        // delete 
+        // DELETE: Category/Delete/5
         [HttpDelete("Category/Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -146,22 +136,5 @@ namespace sales_pets.Controllers
                 }
             }
         }
-
-
     }
-}}
-public class Pet
-{
-    public int Id { get; set; }
-    public int CategoryId { get; set; }
-    public string CategoryName { get; set; } = string.Empty;
-    public string Name { get; set; } = string.Empty;
-    public List<string> PhotoUrls { get; set; } = new List<string>();
-    public List<PetTag> Tags { get; set; } = new List<PetTag>();
-    public string Status { get; set; } = string.Empty;
-}
-
-public class PetTag
-{
-    public string Name { get; set; } = string.Empty;
 }
