@@ -15,10 +15,10 @@
             <label for="photoUrls" class="form-label">Photo URLs</label>
             <input type="text" class="form-control" id="photoUrls" name="PhotoUrls" value="@string.Join(",", Model.PhotoUrls)" placeholder="Enter photo URLs separated by commas">
         </div>
-         <div class="mb-3">
-            <label for="tags" class="form-label">Tags</label>
-            <input type="text" class="form-control" id="tags" name="Tags" value="@string.Join(",", Model.Tags.Select(t => t.Name))" placeholder="Enter tags separated by commas">
-        </div>
+       <div class="mb-3">
+           <label for="tags" class="form-label">Tags</label>
+           <input type="text" class="form-control" id="tags" name="Tags" value="@(Model.Tags != null ? string.Join(",", Model.Tags) : "")" placeholder="Enter tags separated by commas">
+       </div>
         <div class="mb-3">
             <label for="petCategory" class="form-label">Category</label>
             <select class="form-select" id="petCategory" name="CategoryName" required>
@@ -35,10 +35,6 @@
                 <option value="pending" selected="@(Model.Status == "pending")">Pending</option>
                 <option value="sold" selected="@(Model.Status == "sold")">Sold</option>
             </select>
-        </div>
-        <div class="mb-3">
-            <label for="petPrice" class="form-label">Price</label>
-            <input type="number" class="form-control" id="petPrice" name="Price" value="@Model.Price" step="0.01" required>
         </div>
         <button type="submit" class="btn btn-primary">Update Pet</button>
     </form>

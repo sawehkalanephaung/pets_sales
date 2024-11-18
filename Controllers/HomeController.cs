@@ -33,6 +33,7 @@ namespace sales_pets.Controllers
         {
             return View();
         }
+        
 
         public IActionResult DailySales()
         {
@@ -49,6 +50,17 @@ namespace sales_pets.Controllers
         public IActionResult Contact()
         {
             ViewData["Title"] = "Contact";
+            return View();
+        }
+
+        // create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // update
+        public IActionResult Update(){
             return View();
         }
 
