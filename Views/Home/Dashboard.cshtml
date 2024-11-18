@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid">
+    <h1 class="text-start">Dashboard</h1>
+    <div class="mt-4">
+        @await Html.PartialAsync("WeeklySales")
+
+    </div>
+    <div class="mt-4">
+        @await Html.PartialAsync("DailySales")
+    </div>
+</div>

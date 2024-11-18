@@ -14,6 +14,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+//here we use routing
 app.UseRouting();
 
 app.UseAuthorization();
@@ -22,7 +23,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Home}/{action=Landing}/{id?}")
     .WithStaticAssets();
 
 
