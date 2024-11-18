@@ -11,6 +11,12 @@ namespace sales_pets.Controllers
 {
     public class CategoryController : Controller
     {
+
+         public IActionResult Index()
+    {
+        return View();
+    }
+    
         // GET: Category/Create
         public IActionResult Create()
         {
