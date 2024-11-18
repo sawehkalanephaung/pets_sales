@@ -14,6 +14,6 @@ public class Pet
     [Required]
         public string Status { get; set; } = string.Empty;
 
-    public required List<string> PhotoUrls { get; set; }
-    public required List<string> Tags { get; set; }
+    public required string PhotoUrls { get; set; }
+    public required string Tags { get; set; }
 }

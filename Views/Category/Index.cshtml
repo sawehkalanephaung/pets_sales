@@ -54,8 +54,8 @@
                 <p class="card-text">Price: <span class="pet-price"></span></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Buy Now</button>
+                        <button type="button" class="btn btn-sm btn-outline-danger" onclick="deletePet(this)">Delete</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" id="updateButton" onclick="window.location.href='@Url.Action("Update", "Category")'">Update</button>
                     </div>
                 </div>
             </div>
@@ -144,5 +144,26 @@
 
             fetchPets();
         });
+
+        // deletePet
+        function deletePet(button) {
+            const petCard = button.closest('.col');
+            const petName = petCard.querySelector('.pet-name').textContent;
+            const petId = petCard.querySelector('.pet-id').textContent; // Ensure you have a way to get the pet ID
+
+            if (confirm(`Are you sure you want to delete ${petName}?`)) {
+                fetch(`@Url.Action("Delete", "Category")/${petId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (response.ok) {
+                        petCard.remove();
+                    } else {
+                        alert('Failed to delete the pet.');
+                    }
+                })
+                .catch(error => console.error('Error deleting pet:', error));
+            }
+        }
     </script>
 }
